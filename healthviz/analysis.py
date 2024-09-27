@@ -1,5 +1,6 @@
 import numpy as np
 from scipy import stats
+import pandas as pd
 
 class Analyzer:
     def __init__(self, data):
@@ -13,10 +14,14 @@ class Analyzer:
             'std': np.std(self.data[column])
         }
 
-    def detect_anomalies(self, column, threshold=3):
-        """Detect anomalies in the specified column using z-scores."""
-        z_scores = np.abs(stats.zscore(self.data[column]))
-        return self.data[z_scores > threshold]
+    def detect_anomalies_iqr(self, column: str) -> pd.DataFrame:
+        """Detect anomalies in the specified column using IQR method."""
+        Q1 = self.data[column].quantile(0.25)
+        Q3 = self.data[column].quantile(0.75)
+        IQR = Q3 - Q1
+        lower_bound = Q1 - 1.5 * IQR
+        upper_bound = Q3 + 1.5 * IQR
+        return self.data[(self.data[column] < lower_bound) | (self.data[column] > upper_bound)]
 
     def correlation_analysis(self, column1, column2):
         """Perform correlation analysis between two columns."""
@@ -28,6 +33,4 @@ class Analyzer:
 
     def calculate_trend(self, column):
         """Calculate trend using linear regression."""
-        # Implement linear regression here or use scipy.stats.linregress
-        # For simplicity, let's return the mean as a placeholder
         return self.data[column].mean()

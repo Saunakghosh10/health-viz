@@ -1,6 +1,11 @@
+LICENSE
 README.md
 pyproject.toml
 setup.py
+healthviz/__init__.py
+healthviz/analysis.py
+healthviz/data_handling.py
+healthviz/visualization.py
 healthviz.egg-info/PKG-INFO
 healthviz.egg-info/SOURCES.txt
 healthviz.egg-info/dependency_links.txt

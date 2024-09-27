@@ -1,7 +1,3 @@
-Here’s an edited version of your README for the HealthViz package, making it more informative and structured:
-
----
-
 # HealthViz
 
 HealthViz is a Python package designed for visualizing and analyzing health data. It provides functionalities to detect anomalies and generate various visualizations, including histograms and scatter plots, making it an essential tool for health data analysis.
@@ -45,7 +41,10 @@ Contributions are welcome! If you have suggestions for improvements or want to r
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
 ## Acknowledgements
 
